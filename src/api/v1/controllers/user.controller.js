@@ -91,6 +91,28 @@ class UserController {
       });
     }
   }
+  async getClaim(req, res) {
+    try {
+      // Extract claimId from request parameters
+      const { claimId } = req.params;
+      
+      // Call the service to fetch the claim by ID
+      const claim = await UserServices.getClaim(claimId);
+      
+      // Send a success response
+      res.status(200).json({
+        claim,
+      });
+    } catch (error) {
+      console.error("Error fetching claim:", error);
+      
+      // Send an error response
+      res.status(500).json({
+        message: "Error fetching claim",
+        error: error.message,
+      });
+    }
+  }
 
 }
 

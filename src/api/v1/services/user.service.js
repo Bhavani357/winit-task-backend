@@ -61,6 +61,18 @@ class UserService {
     }
   }
 
+  async getClaim(claimId){
+    try {
+      // Call the repository to fetch all claims
+      const claims = await UserRepository.fetchClaim(claimId);
+      return claims;
+    } catch (error) {
+      // Log the error for debugging
+      console.error("Error while getting claims in services:", error);
+      throw new Error(`Error while getting claims: ${error.message}`);
+    }
+  }
+
 }
 
 

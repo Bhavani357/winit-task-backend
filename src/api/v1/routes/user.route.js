@@ -13,5 +13,6 @@ router.post("/claim", UserController.createUser);
 router.post("/claimItem", userController.createclaim);
 router.get("/getClaims", UserController.getClaims);
 router.get("/getClaimItems", UserController.getClaimItems);
+router.get("/getClaim/:claimId", UserController.getClaim);
 
 module.exports = router;

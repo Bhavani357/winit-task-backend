@@ -24,10 +24,10 @@ POST http://localhost:5000/api/v1/users/claimItem
 Content-Type: application/json
 
 {
-  "claimId": 1,
-  "expenseCategory": "travel",
-  "name": "durga",
-  "amount": 453.00,
+  "claimId": 3,
+  "expenseCategory": "food",
+  "name": "biryani",
+  "amount": 8765.00,
   "startDate": "2024-12-02",
   "endDate": "2024-12-19"
 }
@@ -38,3 +38,7 @@ GET http://localhost:5000/api/v1/users/getClaims
 
 ###
 GET http://localhost:5000/api/v1/users/getClaimItems
+### 
+
+GET http://localhost:5000/api/v1/users/getClaim/1
+###

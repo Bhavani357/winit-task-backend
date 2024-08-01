@@ -113,6 +113,26 @@ class UserRepository {
       throw error;
     }
   }
+
+  async fetchClaim(claimId) {
+    try {
+        const db = await connectDB();
+        if (!db) {
+            console.error("Database connection is not established.");
+            throw new Error("Database connection is not established.");
+        }
+
+        // Use parameterized queries to prevent SQL injection
+        const getClaimsData = 'SELECT * FROM claimItems WHERE claimId = ?';
+        const claimsData = await db.all(getClaimsData, [claimId]);
+
+        return claimsData;
+    } catch (error) {
+        console.error("Error while reading claims:", error);
+        throw error; // Rethrow the error to handle it at a higher level if needed
+    }
+}
+  
 }
 
 module.exports = new UserRepository();
